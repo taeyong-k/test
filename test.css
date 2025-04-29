@@ -1,0 +1,81 @@
+#root > .zz {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #56dfb4;
+    font-family: 'PyeongChangPeace-Bold', sans-serif;
+    font-size: 72px;
+    letter-spacing: 5px;
+    line-height: 1.45;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#root > .zz > .console {
+    display: inline-block;
+    white-space: nowrap;
+    text-shadow: 0 0 3px #56dfb4, 0 0 5px #56dfb4, 0 0 10px #00FF00;
+    position: relative;
+}
+
+#root > .zz > .console > .cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#root > .zz::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0px, rgba(0, 0, 0, 0.9) 1px, transparent 2px, transparent 2px);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+#root > .zz::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.05) 10%, rgba(0, 0, 0, 0.95) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 스캔 라인 애니메이션 */
+@keyframes scanlines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+#root > .zz > .scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 255, 0, 0.05) 2px);
+    animation: scanlines 10s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
